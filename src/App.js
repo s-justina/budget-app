@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThemeProvider} from "styled-components";
 
-import GlobalStyles from './index.css'
+import GlobalStyles from './index.css';
 import {Navigation} from "components";
 import theme from 'utils/theme'
 
