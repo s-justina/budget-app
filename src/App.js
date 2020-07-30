@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 import GlobalStyles from './index.css';
-import {Navigation, Wrapper, LoadingIndicator} from "components";
+import {Navigation, Wrapper, LoadingIndicator, Button} from "components";
 import theme from 'utils/theme'
 
 
@@ -21,8 +21,8 @@ function App() {
                 ]}
                 RightElement={(
                     <div>
-                        <button onClick={()=>i18n.changeLanguage('pl')}>pl</button>
-                        <button onClick={()=>i18n.changeLanguage('en')}>en</button>
+                        <Button variant='regular' onClick={()=>i18n.changeLanguage('pl')}>pl</Button>
+                        <Button variant='regular' onClick={()=>i18n.changeLanguage('en')}>en</Button>
                     </div>
                 )}
                 />
