@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 import GlobalStyles from './index.css';
-import {Navigation} from "components";
+import {Navigation, Wrapper, LoadingIndicator} from "components";
 import theme from 'utils/theme'
-import {Wrapper} from "components";
 
 
 function App() {
     const { i18n } = useTranslation();
     return (
 
-        <ThemeProvider theme={theme}>
+        <Fragment>
             <GlobalStyles/>
             <Router>
                 <Navigation items={[
@@ -38,15 +37,17 @@ function App() {
                     </Switch>
                 </Wrapper>
             </Router>
-        </ThemeProvider>
+        </Fragment>
     );
 }
 
 function RootApp() {
 return(
-    <React.Suspense fallback={'loading...'}>
+    <ThemeProvider theme={theme}>
+    <React.Suspense fallback={<LoadingIndicator/>}>
         <App/>
     </React.Suspense>
+    </ThemeProvider>
 )
 }
 
