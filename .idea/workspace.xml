@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e90eb70-7201-4e16-bd9a-74eb7195836b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/i18n/CustomBackend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/i18n/i18n.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoadingIndicator/LoadingIndicator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoadingIndicator/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.css.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595939088550</updated>
-      <workItem from="1595939092492" duration="28341000" />
+      <workItem from="1595939092492" duration="28641000" />
+      <workItem from="1596118473338" duration="2347000" />
     </task>
     <task id="LOCAL-00001" summary="create Navigation component;&#10;style Navigation">
       <created>1595951288672</created>
@@ -96,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596020594756</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create Navigation translating">
+      <created>1596039046922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596039046922</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,20 +110,21 @@
     <MESSAGE value="create Navigation component;&#10;style Navigation" />
     <MESSAGE value="normalize global style" />
     <MESSAGE value="create Navigation routing" />
-    <option name="LAST_COMMIT_MESSAGE" value="create Navigation routing" />
+    <MESSAGE value="create Navigation translating" />
+    <option name="LAST_COMMIT_MESSAGE" value="create Navigation translating" />
   </component>
   <component name="WindowStateProjectService">
     <state x="448" y="173" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595940171502">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="448" y="173" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1595940171502" />
-    <state x="306" y="0" key="CommitChangelistDialog2" timestamp="1596020594018">
+    <state x="306" y="0" key="CommitChangelistDialog2" timestamp="1596039046253">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="306" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1596020594018" />
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1596020597229">
+    <state x="306" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1596039046253" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1596039048914">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596020597229" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596039048914" />
   </component>
 </project>
