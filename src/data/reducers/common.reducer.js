@@ -1,11 +1,9 @@
 import {
-    ALL_CATEGORIES_GET,
     ALL_CATEGORIES_GET_REQUEST,
     ALL_CATEGORIES_GET_SUCCESS,
     ALL_CATEGORIES_GET_FAILURE,
     LOADING_STATES,
 } from '../constants';
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
     loadingState: {},
@@ -13,7 +11,7 @@ const initialState = {
 };
 
 function budget(state = initialState, action) {
-    const newLoadingState = {...state.loadingState};
+    const newLoadingState = { ...state.loadingState };
     switch (action.type) {
         case ALL_CATEGORIES_GET_REQUEST:
             return {
@@ -30,7 +28,7 @@ function budget(state = initialState, action) {
                 allCategories: action.payload,
                 loadingState: newLoadingState,
             };
-            case ALL_CATEGORIES_GET_FAILURE:
+        case ALL_CATEGORIES_GET_FAILURE:
             delete newLoadingState.ALL_CATEGORIES_GET_REQUEST;
             return {
                 ...state,
@@ -38,7 +36,7 @@ function budget(state = initialState, action) {
                 loadingState: newLoadingState,
             };
         default:
-            return state
+            return state;
     }
 }
 
