@@ -4,12 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import CustomBackend from './CustomBackend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const token = '6b9fee07fccc96c3f73a9ddfbff00cce';
-const id = '362207';
-
-
-i18n
-    .use(CustomBackend)
+i18n.use(CustomBackend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
@@ -37,22 +32,24 @@ i18n
             parsePayload: (namespace, key) => {
                 if (key === '_t') return;
 
-                const data = [{
-                    term: key,
-                }];
+                const data = [
+                    {
+                        term: key,
+                    },
+                ];
                 const payload = {
-                    api_token: token,
+                    api_token: `${process.env.REACT_APP_TOKEN}`,
                     data: JSON.stringify(data),
-                    id,
+                    id: `${process.env.REACT_APP_ID}`,
                 };
 
                 return payload;
             },
             parseLoadPayload: ({ lng }) => {
                 const payload = {
-                    api_token: token,
+                    api_token: `${process.env.REACT_APP_TOKEN}`,
                     language: lng,
-                    id,
+                    id: `${process.env.REACT_APP_ID}`,
                 };
 
                 return payload;
@@ -63,6 +60,5 @@ i18n
             escapeValue: false, // not needed for react as it escapes by default
         },
     });
-
 
 export default i18n;

@@ -1,18 +1,22 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {connect} from 'react-redux';
 
 import GlobalStyles from './index.css';
-import {fetchBudget} from './data/actions/budget.actions';
+import {fetchBudget, fetchBudgetedCategories} from './data/actions/budget.actions';
 import {Navigation, Wrapper, LoadingIndicator, Button} from "components";
 import theme from 'utils/theme'
 
 
-function App({budget, fetchBudget}) {
+function App({budget, fetchBudget, fetchBudgetedCategories}) {
     const { i18n } = useTranslation();
-    console.log(budget)
+    useEffect(()=> {
+        fetchBudget(1);
+        fetchBudgetedCategories(1);
+    }, [fetchBudget, fetchBudgetedCategories]);
+
     return (
 
         <Fragment>
@@ -50,7 +54,8 @@ budget: state.budget.budget
     }
 },
     {
-        fetchBudget
+        fetchBudget,
+        fetchBudgetedCategories
     }
     )(App);
 
