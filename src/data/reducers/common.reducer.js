@@ -6,11 +6,11 @@ import {
 } from '../constants';
 
 const initialState = {
-    loadingState: {},
+    loadingState: null,
     allCategories: [],
 };
 
-function budget(state = initialState, action) {
+function common(state = initialState, action) {
     const newLoadingState = { ...state.loadingState };
     switch (action.type) {
         case ALL_CATEGORIES_GET_REQUEST:
@@ -40,4 +40,4 @@ function budget(state = initialState, action) {
     }
 }
 
-export default budget;
+export default common;
