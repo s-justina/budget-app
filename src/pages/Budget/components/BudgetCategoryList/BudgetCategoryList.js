@@ -6,7 +6,7 @@ import { ToggleableList } from '../../../../components/index';
 import ParentCategory from './ParentCategory';
 import CategoryItem from './CategoryItem';
 
-function BudgetCategoryList({ budgetedCategories, allCategories }) {
+function BudgetCategoryList({ budgetedCategories, allCategories, budget }) {
     const budgetedCategoriesByParent = groupBy(
         budgetedCategories,
         item => allCategories.find(category => category.id === item.categoryId).parentCategory.name
@@ -14,7 +14,14 @@ function BudgetCategoryList({ budgetedCategories, allCategories }) {
 
     const listItems = Object.entries(budgetedCategoriesByParent).map(([parentName, categories]) => ({
         id: parentName,
-        Trigger: ({ onClick }) => <ParentCategory name={parentName} onClick={() => onClick(parentName)} />,
+        Trigger: ({ onClick }) => (
+            <ParentCategory
+                name={parentName}
+                onClick={() => onClick(parentName)}
+                categories={categories}
+                transactions={budget.transactions}
+            />
+        ),
         children: categories.map(budgetedCategory => {
             const { name } = allCategories.find(category => category.id === budgetedCategory.categoryId);
             return <CategoryItem key={budgetedCategory.id} name={name} />;
@@ -30,4 +37,5 @@ function BudgetCategoryList({ budgetedCategories, allCategories }) {
 export default connect(state => ({
     budgetedCategories: state.budget.budgetedCategories,
     allCategories: state.common.allCategories,
+    budget: state.budget.budget,
 }))(BudgetCategoryList);
