@@ -24,11 +24,26 @@ function BudgetCategoryList({ budgetedCategories, allCategories, budget }) {
         ),
         children: categories.map(budgetedCategory => {
             const { name } = allCategories.find(category => category.id === budgetedCategory.categoryId);
-            return <CategoryItem key={budgetedCategory.id} name={name} />;
+            return (
+                <CategoryItem
+                    key={budgetedCategory.id}
+                    name={name}
+                    item={budgetedCategory}
+                    transactions={budget.transactions}
+                />
+            );
         }),
     }));
+    const totalSpent = budget.transactions.reduce((acc,transaction)=>acc+transaction.amount, 0);
+    const restToSpent = budget.totalAmount - totalSpent
     return (
         <div>
+            <ParentCategory
+            name={budget.name}
+            amount={restToSpent}
+            >
+
+            </ParentCategory>
             <ToggleableList items={listItems} />
         </div>
     );
