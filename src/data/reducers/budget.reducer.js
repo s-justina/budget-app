@@ -9,9 +9,9 @@ import {
 } from '../constants/index';
 
 const initialState = {
-    loadingState: {},
+    loadingState: null,
     budget: {},
-    budgetCategories: [],
+    budgetedCategories: [],
 };
 
 function budget(state = initialState, action) {
