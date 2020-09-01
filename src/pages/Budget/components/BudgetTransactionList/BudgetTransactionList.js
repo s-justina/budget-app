@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
 import { List, ListItem } from './BudgetTransactionList.css';
 import { formatCurrency, formatDate } from '../../../../utils';
 
 function BudgetTransactionList({ transactions, allCategories, selectedParentCategoryId, budgetedCategories }) {
-    const filterededTransactionsBySelectedParentCategory = (() => {
+    const filterededTransactionsBySelectedParentCategory = useMemo(() => {
         if (typeof selectedParentCategoryId === 'undefined') {
             return transactions;
         }
@@ -26,18 +26,23 @@ function BudgetTransactionList({ transactions, allCategories, selectedParentCate
                 return false;
             }
         });
-    })();
+    }, [allCategories, budgetedCategories, selectedParentCategoryId, transactions]);
 
-    const groupedTransactions = groupBy(filterededTransactionsBySelectedParentCategory, transaction =>
-        new Date(transaction.date).getUTCDate()
+    const groupedTransactions = useMemo(
+        () =>
+            groupBy(filterededTransactionsBySelectedParentCategory, transaction =>
+                new Date(transaction.date).getUTCDate()
+            ),
+        [filterededTransactionsBySelectedParentCategory]
     );
+
     return (
         <List>
             {Object.entries(groupedTransactions).map(([key, transactions]) => (
-                <li>
+                <li key={key}>
                     <ul>
                         {transactions.map(transaction => (
-                            <ListItem>
+                            <ListItem key={transaction.id}>
                                 <div>{transaction.description}</div>
                                 <div>{formatCurrency(transaction.amount)}</div>
                                 <div>{formatDate(transaction.date)}</div>
