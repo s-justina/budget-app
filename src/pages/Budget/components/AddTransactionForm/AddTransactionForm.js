@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Form, Field } from 'react-final-form';
+import { groupBy } from 'lodash';
 
 const required = value => (value ? undefined : 'Required!');
 
+function AddTransactionForm({ categories, groupCategoriesBy }) {
+    const groupedCategoriesByParentName = groupCategoriesBy ? groupBy(categories, groupCategoriesBy) : null;
+    const categoryItems = useMemo(
+        () =>
+            groupedCategoriesByParentName
+                ? Object.entries(groupedCategoriesByParentName).map(([patentName, categories]) => (
+                      <optgroup key={patentName} label={patentName}>
+                          {categories.map(category => (
+                              <option key={category.id} value={category.id}>
+                                  {category.name}
+                              </option>
+                          ))}
+                      </optgroup>
+                  ))
+                : categories.map(category => (
+                      <option key={category.id} value={category.id}>
+                          {category.name}
+                      </option>
+                  )),
+        [groupedCategoriesByParentName, categories]
+    );
 
-function AddTransactionForm() {
     return (
         <Form
             onSubmit={console.log}
@@ -19,7 +40,7 @@ function AddTransactionForm() {
                             </div>
                         )}
                     </Field>
-                    <Field name='amount' validate={required} parse={value=>parseFloat(value,10)}>
+                    <Field name='amount' validate={required} parse={value => parseFloat(value, 10)}>
                         {({ input, meta }) => (
                             <div>
                                 <label>Amount</label>
@@ -32,7 +53,7 @@ function AddTransactionForm() {
                         {({ input, meta }) => (
                             <div>
                                 <label>Category</label>
-                                <input {...input} type='text' placeholder='Category' />
+                                <select {...input}>{categoryItems}</select>
                                 {meta.error && meta.touched && <span>{meta.error}</span>}
                             </div>
                         )}
