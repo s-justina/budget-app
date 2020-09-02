@@ -9,6 +9,7 @@ import { LoadingIndicator, Modal, Button } from '../../components';
 import BudgetCategoryList from '../../pages/Budget/components/BudgetCategoryList/index';
 import BudgetTransactionList from '../../pages/Budget/components/BudgetTransactionList/index';
 import 'styled-components/macro';
+import AddTransactionForm, {AddTransactionForn} from './components/AddTransactionForm/index';
 
 function Budget({ budgetState, commonState, budget, fetchBudget, fetchBudgetedCategories, fetchAllCategories }) {
     useEffect(() => {
@@ -42,7 +43,9 @@ function Budget({ budgetState, commonState, budget, fetchBudget, fetchBudgetedCa
             </Grid>
             <Switch>
                 <Route path='/budget/transactions/new'>
-                    <Modal>HIHIHI</Modal>
+                    <Modal>
+                        <AddTransactionForm/>
+                    </Modal>
                 </Route>
             </Switch>
         </Fragment>
