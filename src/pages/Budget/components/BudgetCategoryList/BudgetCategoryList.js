@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useCallback } from 'react';
+import React, { useMemo, useRef, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
 import { useTranslation } from 'react-i18next';
@@ -14,16 +14,16 @@ function BudgetCategoryList({ budgetedCategories, allCategories, budget, selectP
 
     const handleClickParentCategoryRef = useRef(null);
 
-    const serverError = useMemo(
-        () =>
-            !!budget &&
-            Object.keys(budget).length === 0 &&
-            !!allCategories &&
-            Object.keys(allCategories).length === 0 &&
-            !!budgetedCategories &&
-            Object.keys(budgetedCategories).length === 0,
-        [budget, allCategories, budgetedCategories]
-    );
+    // const serverError = useMemo(
+    //     () =>
+    //         !!budget &&
+    //         Object.keys(budget).length === 0 &&
+    //         !!allCategories &&
+    //         Object.keys(allCategories).length === 0 &&
+    //         !!budgetedCategories &&
+    //         Object.keys(budgetedCategories).length === 0,
+    //     [budget, allCategories, budgetedCategories]
+    // );
 
     const budgetedCategoriesByParent = useMemo(
         () =>
@@ -119,21 +119,21 @@ function BudgetCategoryList({ budgetedCategories, allCategories, budget, selectP
         handleClickParentCategoryRef.current();
     }, [selectParentCategory, handleClickParentCategoryRef]);
 
-    if (serverError) {
-        return (
-            <div
-                css={`
-                    margin-top: ${({ theme }) => theme.spacing.sm}px;
-                    text-align: center;
-                    font-weight: bold;
-                    text-transform: underline;
-                    font-size: 2em;
-                `}
-            >
-                {t('Server is not responding. Please try later.')}
-            </div>
-        );
-    }
+    // if (serverError) {
+    //     return (
+    //         <div
+    //             css={`
+    //                 margin-top: ${({ theme }) => theme.spacing.sm}px;
+    //                 text-align: center;
+    //                 font-weight: bold;
+    //                 text-transform: underline;
+    //                 font-size: 2em;
+    //             `}
+    //         >
+    //             {t('Server is not responding. Please try later.')}
+    //         </div>
+    //     );
+    // }
 
     return (
         <div>
