@@ -176,6 +176,46 @@
       "date": "2020-09-03",
       "budgetId": "1",
       "id": "aWFthXL"
+    },
+    {
+      "description": "Nowa transakcja 2",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "QtxI8bM"
+    },
+    {
+      "description": "nowa transakcja 3",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "H18fq44"
+    },
+    {
+      "description": "nowa transakcja 4",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "8HvEZER"
+    },
+    {
+      "description": "nowa transakcja 5",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "9Smsliw"
+    },
+    {
+      "description": "nowa transakcja",
+      "amount": 0.01,
+      "date": "2020-09-02",
+      "categoryId": "1",
+      "budgetId": "1",
+      "id": "JYpeNKI"
     }
   ]
 }

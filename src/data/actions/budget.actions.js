@@ -24,6 +24,7 @@ export const addTransaction = ({budgetId, data})=>{
   return{
       type: BUDGET_TRANSACTION_ADD,
       promise,
+      successMessage: 'Transaction has been added!',
   }
 };
 
