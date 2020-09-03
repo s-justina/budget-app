@@ -160,6 +160,22 @@
       "date": "2020-02-13",
       "budgetId": "1",
       "id": "p1tYW2Q"
+    },
+    {
+      "description": "nowa transakcja",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "pQyoUZ_"
+    },
+    {
+      "description": "Nowa transakcja 1",
+      "amount": 10.5,
+      "categoryId": "3",
+      "date": "2020-09-03",
+      "budgetId": "1",
+      "id": "aWFthXL"
     }
   ]
 }

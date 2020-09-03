@@ -1,4 +1,4 @@
-import { BUDGET_GET, BUDGETED_CATEGORIES_GET, SET_SELECTED_PARENT_CATEGORY_ID } from '../constants/index';
+import { BUDGET_GET, BUDGETED_CATEGORIES_GET, SET_SELECTED_PARENT_CATEGORY_ID, BUDGET_TRANSACTION_ADD } from '../constants/index';
 import API from '../fetch/index';
 
 export const fetchBudget = id => {
@@ -17,6 +17,14 @@ export const fetchBudgetedCategories = id => {
         type: BUDGETED_CATEGORIES_GET,
         promise,
     };
+};
+
+export const addTransaction = ({budgetId, data})=>{
+  const promise = API.budget.addTransaction({budgetId, data});
+  return{
+      type: BUDGET_TRANSACTION_ADD,
+      promise,
+  }
 };
 
 export const selectParentCategory = (id)=>{
